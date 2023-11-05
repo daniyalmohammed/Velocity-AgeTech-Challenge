@@ -19,12 +19,15 @@ body {
     font-size: 2.5rem; /* Make the title bigger */
   }
   
-  .search-bar {
-    display: flex;
+  
+  
+  .search-bar input {
+    border: none;
     align-items: center;
     width: 100%;
     max-width: 700px;
-    margin-bottom: 100px;
+    margin-top: 100px;
+    margin-bottom: 400px;
     font-size: 16px;
     border-radius: 50px; /* Make it more rounded */
     background-color: white;
@@ -32,21 +35,13 @@ body {
   }
   
   
-  .search-bar input {
-    border: none;
-    margin-left: 10px;
-    font-size: 18px;
-    border-radius: 25px; /* This applies a 25px radius to all corners */
-    outline: none;
-    width: 100%;
-  }
-  
-  
   .card-container {
+
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    margin-top: 50px;
   }
   
   .card {
