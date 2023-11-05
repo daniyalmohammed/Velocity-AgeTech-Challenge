@@ -7,14 +7,14 @@ const equipmentData = [
     name: 'Equipment A',
     hospitals: [
       {
-        name: 'Hospital A',
+        name: 'Trafalgar Hospital',
         cost: '$1000',
         stock: 10,
         estimatedTime: '2 days',
-        brand: 'ACME'
+        brand: 'Pfizer'
       },
       {
-        name: 'Hospital B',
+        name: 'Trillium Care Center',
         cost: '$1200',
         stock: 5,
         estimatedTime: '3 days',
@@ -27,18 +27,25 @@ const equipmentData = [
     name: 'Equipment B',
     hospitals: [
       {
-        name: 'Hospital C',
+        name: 'Villa Italia Retirement Home',
         cost: '$1500',
         stock: 5,
         estimatedTime: '3 days',
-        brand: 'ACME'
+        brand: 'Moderna'
       },
       {
-        name: 'Hospital D',
+        name: 'Melissa F. Core Lab',
         cost: '$1300',
         stock: 8,
         estimatedTime: '4 days',
-        brand: 'ACME'
+        brand: 'N-22'
+      },
+      {
+        name: 'McMaster University',
+        cost: '$1300',
+        stock: 8,
+        estimatedTime: '4 days',
+        brand: 'Johnson and Johnson'
       },
     ],
   },
@@ -47,14 +54,14 @@ const equipmentData = [
     name: 'Equipment C',
     hospitals: [
       {
-        name: 'Hospital E',
+        name: 'Burlington Urgent Care Center',
         cost: '$800',
         stock: 15,
         estimatedTime: '1 day',
-        brand: 'ACME'
+        brand: 'Therapeutics Labs'
       },
       {
-        name: 'Hospital F',
+        name: 'Juravinski Cancer Center',
         cost: '$900',
         stock: 20,
         estimatedTime: '2 days',
