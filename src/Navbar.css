@@ -1,0 +1,42 @@
+/* Navbar.css */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+  
+}
+  
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .navbar-brand {
+    font-size: 30px;
+    color: #333;
+    text-decoration: none;
+    color: #505F98;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  
+  .navbar-nav {
+    display: flex;
+  }
+  
+  .nav-item {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #505F98;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .nav-item:hover {
+    background-color: #f2f2f2;
+  }
+  
