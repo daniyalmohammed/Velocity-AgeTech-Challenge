@@ -4,6 +4,7 @@ import Login from './Login';
 import EquipmentList from './EquipmentList';
 import EquipmentDetail from './EquipmentDetail';
 import './App.css';
+import EquipmentTable from './Sell';
 // Import the Navbar CSS
 import './Navbar.css';
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<EquipmentList user={user} />} />
           <Route path="/equipment-list" element={<EquipmentList user={user} />} />
           <Route path="/equipment/:id" element={<EquipmentDetail />} />
+          <Route path="/sell" element={<EquipmentTable/>} />
           {/* Add more routes here as needed */}
         </Routes>
       </div>
