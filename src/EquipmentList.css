@@ -81,4 +81,50 @@ body {
     font-size: 14px;
     color: #888;
   }
+
+  .search-container {
+    position: relative;
+    width: 100%;
+  }
+  
+
+  .dropdown {
+    position: absolute;
+    width: calc(100% - 2px); /* Adjust width based on border or padding */
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 100px; /* Adjust based on how much dropdown you want to show */
+    overflow-y: auto;
+    background-color: white;
+    z-index: 10; /* Ensure it is above other content */
+  }
+  
+  .dropdown-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f6f6f6;
+  }
+  
+  /* Additional styles for the input */
+  input[type="text"]:focus {
+    outline: none; /* Removes the default focus outline */
+    border-color: #a8a8a8;
+    box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+  }
+
+  
+  /* Hide the dropdown initially */
+  .dropdown {
+    display: none;
+  }
+  
+  /* Show the dropdown when input is focused */
+  input[type="text"]:focus + .dropdown {
+    display: block;
+  }
+  
   

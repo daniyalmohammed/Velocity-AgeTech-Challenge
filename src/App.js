@@ -28,7 +28,8 @@ function App() {
 
         {/* Main Content Area */}
         <Routes>
-          <Route path="/" element={<Login setUser={setUser} />} />
+        <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/" element={<EquipmentList user={user} />} />
           <Route path="/equipment-list" element={<EquipmentList user={user} />} />
           <Route path="/equipment/:id" element={<EquipmentDetail />} />
           {/* Add more routes here as needed */}
