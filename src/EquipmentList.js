@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './EquipmentList.css'; // Make sure to create a EquipmentList.css file in the same directory.
+import backgroundImage from './images/background.png'; // Adjust the path to where your image is located
 
+
+const aspectRatio = 360 / 1157; // Replace with your image's aspect ratio
 const equipmentData = [
   { id: 1, name: 'Gloves', availability: 'In stock', image: 'gloves.png' },
   { id: 2, name: 'Masks', availability: 'Limited stock', image: 'masks.png' },
@@ -19,9 +22,16 @@ function EquipmentList({ user }) {
       )
     : [];
 
+    const backgroundStyle = {
+      backgroundImage: `url(${backgroundImage})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: '100% auto',
+      backgroundAttachment: 'scroll',
+      minHeight: `calc(1010vw * ${aspectRatio})`, // This keeps the aspect ratio
+    };
 
   return (
-    <div className="equipment-list">
+    <div className="equipment-list" style={backgroundStyle}>
       <div className="search-bar">
         <div className="search-container">
           <input
