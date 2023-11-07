@@ -37,23 +37,26 @@ function EquipmentList({ user }) {
           <input
             type="text"
             placeholder="Search products"
+            style={{ border: 'none', outline: 'none' }}
             onChange={(e) => setFilter(e.target.value)}
             onFocus={() => setShowDropdown(true)}
             onBlur={() => setTimeout(() => setShowDropdown(false), 100)} // hides dropdown when not focused
           />
-          {showDropdown && (
-            <div className="dropdown">
-              {filteredEquipment.map((item) => (
-                <div
-                  className="dropdown-item"
-                  key={item.id}
-                  onMouseDown={() => navigate(`/equipment/${item.id}`)} // onMouseDown triggers before onBlur
-                >
-                  {item.name}
-                </div>
-              ))}
-            </div>
-          )}
+            {showDropdown && (
+              <div className="dropdown">
+                {filteredEquipment.map((item) => (
+                  <div
+                    className="dropdown-item"
+                    key={item.id}
+                    onMouseDown={() => navigate(`/equipment/${item.id}`)} // onMouseDown triggers before onBlur
+                  >
+                    {item.name}
+                    <span className="item-availability">{item.availability}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
         </div>
       </div>
     </div>

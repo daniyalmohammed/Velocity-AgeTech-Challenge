@@ -1,97 +1,134 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import './EquipmentDetail.css'; // This path should be relative to your component file
+
 
 const equipmentData = [
   {
     id: '1',
-    name: 'Equipment A',
-    hospitals: [
+    equipmentType: 'Equipment A',
+    listings: [
       {
-        name: 'Trafalgar Hospital',
-        cost: '$1000',
-        stock: 10,
-        estimatedTime: '2 days',
-        brand: 'Pfizer'
+        equipmentType: 'Equipment A',
+        model: 'Pfizer',
+        count: 10,
+        price: '$1000',
+        rentalPeriod: '2 days',
+        supplier: 'Trafalgar Hospital'
       },
       {
-        name: 'Trillium Care Center',
-        cost: '$1200',
-        stock: 5,
-        estimatedTime: '3 days',
-        brand: 'ACME'
+        equipmentType: 'Equipment A',
+        model: 'ACME',
+        count: 5,
+        price: '$1200',
+        rentalPeriod: '3 days',
+        supplier: 'Trillium Care Center'
       },
     ],
   },
   {
     id: '2',
-    name: 'Equipment B',
-    hospitals: [
+    equipmentType: 'Equipment B',
+    listings: [
       {
-        name: 'Villa Italia Retirement Home',
-        cost: '$1500',
-        stock: 5,
-        estimatedTime: '3 days',
-        brand: 'Moderna'
+        equipmentType: 'Equipment A',
+        model: 'Moderna',
+        count: 5,
+        price: '$1500',
+        rentalPeriod: '3 days',
+        supplier: 'Villa Italia Retirement Home'
       },
       {
-        name: 'Melissa F. Core Lab',
-        cost: '$1300',
-        stock: 8,
-        estimatedTime: '4 days',
-        brand: 'N-22'
+        equipmentType: 'Equipment A',
+        model: 'N-22',
+        count: 8,
+        price: '$1300',
+        rentalPeriod: '4 days',
+        supplier: 'Melissa F. Core Lab'
       },
       {
-        name: 'McMaster University',
-        cost: '$1300',
-        stock: 8,
-        estimatedTime: '4 days',
-        brand: 'Johnson and Johnson'
+        equipmentType: 'Equipment A',
+        model: 'Johnson and Johnson',
+        count: 8,
+        price: '$1300',
+        rentalPeriod: '4 days',
+        supplier: 'McMaster University'
       },
     ],
   },
   {
     id: '3',
-    name: 'Equipment C',
-    hospitals: [
+    equipmentType: 'Equipment C',
+    listings: [
       {
-        name: 'Burlington Urgent Care Center',
-        cost: '$800',
-        stock: 15,
-        estimatedTime: '1 day',
-        brand: 'Therapeutics Labs'
+        equipmentType: 'Equipment A',
+        model: 'Therapeutics Labs',
+        count: 15,
+        price: '$800',
+        rentalPeriod: '1 day',
+        supplier: 'Burlington Urgent Care Center'
       },
       {
-        name: 'Juravinski Cancer Center',
-        cost: '$900',
-        stock: 20,
-        estimatedTime: '2 days',
-        brand: 'ACME'
+        equipmentType: 'Equipment A',
+        model: 'ACME',
+        count: 20,
+        price: '$900',
+        rentalPeriod: '2 days',
+        supplier: 'Juravinski Cancer Center'
       },
     ],
   },
 ];
 
+
 function EquipmentDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const equipment = equipmentData.find(item => item.id === id);
+  const [sortedListings, setSortedListings] = useState(equipment.listings);
+
+  const sortListings = (field) => {
+    const sorted = [...sortedListings].sort((a, b) => {
+      let valA = field === 'price' ? Number(a[field].substring(1)) : Number(a[field].split(' ')[0]);
+      let valB = field === 'price' ? Number(b[field].substring(1)) : Number(b[field].split(' ')[0]);
+      
+      return valA - valB;
+    });
+    setSortedListings(sorted);
+  };
+
+  const handleRowClick = (listing) => {
+    // This will navigate to the checkout page with the clicked listing's details
+    navigate('/checkout', { state: { listing } });
+  };
 
   return (
-    <div className="equipment-list">
-      <h1>Equipment Detail</h1>
-      <div className="card-container">
-        {equipment.hospitals.map((hospital, index) => (
-          <div className="card" key={index}>
-            <img src={require("./images/hospital-image.jpg")} alt={hospital.name} className="card-image" />
-            <div className="card-content">
-              <h3 className="card-title">{hospital.name}</h3>
-              <p>Brand: {hospital.brand}</p>
-              <p>Cost: {hospital.cost}</p>
-              <p>Number in Stock: {hospital.stock}</p>
-              <p>Estimated Time: {hospital.estimatedTime}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="equipment-detail">
+      <h1>{equipment.equipmentType} Details</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Supplier</th>
+            <th className="sortable" onClick={() => sortListings('price')}>
+              Price  ↑↓<i className="fa fa-sort"></i>
+            </th>
+            <th className="sortable" onClick={() => sortListings('rentalPeriod')}>
+              Delivery Time  ↑↓<i className="fa fa-sort"></i>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedListings.map((listing, index) => (
+            <tr key={index} onClick={() => handleRowClick(listing)} className="clickable-row">
+              <td>{listing.model}</td>
+              <td>{listing.supplier}</td>
+              <td>{listing.price}</td>
+              <td>{listing.rentalPeriod}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

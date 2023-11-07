@@ -1,78 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-body {
-  font-family: 'Poppins', sans-serif;
+.equipment-detail {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  max-width: 800px; /* Adjust width as needed */
+  margin: 0 auto;
 }
 
-.equipment-list {
-  padding: 40px 20px; /* Increase padding for more space */
-  background: #f4f4f9;
-  min-height: 100vh;
+.equipment-detail .table-and-buttons {
+  display: flex;
+  align-items: flex-start;
+}
+
+.equipment-detail table {
+  margin-right: 20px;
+}
+
+.equipment-detail .rent-buttons {
   display: flex;
   flex-direction: column;
-  align-items: center; /* This will center your content horizontally */
+  padding: 0;
 }
 
-.equipment-list h1 {
-  color: rgb(42, 42, 42);
-  margin-bottom: 40px; /* Increase space between title and search bar */
-  font-size: 2.5rem; /* Make the title bigger */
+.equipment-detail .rent-button {
+  margin-bottom: 10px; /* adjust the space to align with table rows */
+  /* rest of the button styling */
 }
 
-.search-bar input {
-  border: none;
-  align-items: center;
-  width: 100%;
-  max-width: 700px;
-  margin-top: 100px;
-  margin-bottom: 400px;
-  font-size: 16px;
-  border-radius: 50px; /* Make it more rounded */
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+
+.equipment-detail h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
 }
 
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 50px;
+
+thead {
+  background-color: #0000FF; /* Changed to blue */
 }
 
-.card {
-  width: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+th, td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  cursor: pointer; /* To indicate the headers are clickable for sorting */
+  background-color: #4D6B97;
+}
+
+th:hover {
+  background-color: #2b3b54; /* Hover effect for headers */
+}
+
+thead {
+  background-color: #4D6B97;
+  color: white;
   border-radius: 8px;
-  background: #fff;
-  transition: transform 0.2s;
+}
+
+
+th:hover,
+th .fa-sort:hover {
+  background-color: #2b3b54; /* Darken header on hover */
+}
+
+tbody tr:hover {
+  background-color: #e3e3e3; /* Darker shade on row hover for click indication */
   cursor: pointer;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover for a better effect */
+/* This is to indicate that a row is clickable */
+tbody tr {
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
-.card-image {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
 
-.card-content {
-  padding: 10px;
-}
 
-.card-title {
-  font-size: 18px;
-  color: #333;
-  margin-bottom: 5px;
-}
 
-.card-availability {
-  font-size: 14px;
-  color: #888;
-}
+
+
+
