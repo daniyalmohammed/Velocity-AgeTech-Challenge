@@ -45,7 +45,7 @@ function EquipmentTable() {
 
   return (
     <div>
-      <h1>Equipment Table</h1>
+      <h1>Upload All your Products in One Click!</h1>
       <input type="file" onChange={handleFileUpload} accept=".csv" />
       <table>
         <thead>

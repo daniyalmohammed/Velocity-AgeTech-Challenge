@@ -19,8 +19,8 @@ function App() {
         <nav className="navbar">
           <div className="navbar-nav">
             <Link to="/" className="nav-item">Home</Link>
-            <Link to="/about" className="nav-item">About</Link>
-            <Link to="/equipment-list" className="nav-item">Rent</Link>
+            {/* <Link to="/about" className="nav-item">About</Link> */}
+            <Link to="/login" className="nav-item">Rent</Link>
             <Link to="/sell" className="nav-item">Lend</Link>
             <Link to="/contact" className="nav-item">Contact</Link>
             <Link to="/login" className="nav-item">Sign up / Log in</Link>
