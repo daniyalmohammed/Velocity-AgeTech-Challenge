@@ -70,7 +70,7 @@ function Checkout() {
 
 {showModal && (
   <Modal onClose={() => setShowModal(false)}>
-    <p>Thank you for renting from MedMobilize, your order will arrive in {listing.rentalPeriod} business days.</p>
+    <p>Thank you for renting from MedMobilize, your order will arrive in {listing.rentalPeriod}.</p>
   </Modal>
 )}
           </div>
